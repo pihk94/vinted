@@ -8,7 +8,8 @@ setup(
     scripts=[],
     install_requires=[
         "requests",
-        "discord.py"
+        "discord.py",
+        "discord-components"
     ],
     author="Melchior Prugniaud",
     author_email="melchior.prugniaud@gmail.com",
