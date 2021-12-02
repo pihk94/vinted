@@ -27,7 +27,9 @@ async def _add_items(ctx, url: str):
     with open(SAVED_SEARCHES, 'r') as f:
         lines = f.readlines()
     lines = [json.loads(line) for line in lines]
-    searches = [(line.get("search_text"), line.get("brand_ids")) for line in lines]
+    searches = [
+        (line.get("search_text"), line.get("brand_ids")) for line in lines
+    ]
     lst = []
     for search in searches:
         if (params.get("search_text") ==  search[0] and # noqa
@@ -36,13 +38,13 @@ async def _add_items(ctx, url: str):
         else:
             lst.append(False)
     if sum(lst) > 0:
-            await ctx.send(f"""
-                Watcher already exist for :
-            Text: {params.get("search_text")}
-            Brand: {params.get("brand_ids")}
-            Full parameters of watcher is:
-                {params}
-            """)
+        await ctx.send(f"""
+            Watcher already exist for :
+        Text: {params.get("search_text")}
+        Brand: {params.get("brand_ids")}
+        Full parameters of watcher is:
+            {params}
+        """)
     else:
         # Write to file searches
         with open(SAVED_SEARCHES, "a") as f:
@@ -57,10 +59,12 @@ async def _add_items(ctx, url: str):
 async def remove_items(ctx, id: int = None):
     with open(SAVED_SEARCHES, 'r') as f:
         lines = f.readlines()
-    if id == None:
+    if id is None:
         searches = ""
         for i, line in enumerate(lines):
-            searches += f"Search ID: {i}, URL: {reverse_url(json.loads(line))}\n"
+            searches += f"""Search ID: {i}, URL: {reverse_url(
+                json.loads(line)
+            )}\n"""
         await ctx.send(f"List of saved items:\n{searches}")
         return
     el = json.loads(lines[id])
@@ -69,6 +73,7 @@ async def remove_items(ctx, id: int = None):
     with open(SAVED_SEARCHES, 'w') as f:
         f.write("\n".join(lines))
     await ctx.send(txt)
+
 
 @bot.command(name="clear_message")
 async def clear(ctx):

@@ -25,6 +25,7 @@ CURRENCIES = {
     "USD": "$"
 }
 
+
 def parse_url(url: str) -> dict:
     """Parse search url from vinted to a dictionnary ready
         to use for vinted api.
@@ -66,7 +67,7 @@ def reverse_url(params: dict) -> str:
         "order": "newest_first",
     }
     for key, value in params.items():
-        if not key in ['search_text', 'order']:
+        if key not in ['search_text', 'order']:
             if key == 'status_ids':
                 new_params["status[]"] = value.split(',')
             else:
@@ -92,11 +93,11 @@ def write_last_check(
 
 
 def get_last_check(
-    id: int,
-    filename: str = f"{DIRECTORY}/data/last_check.json") -> datetime:
+        id: int,
+        filename: str = f"{DIRECTORY}/data/last_check.json") -> datetime:
     with open(filename, "r") as f:
         data = json.load(f)
-    if data.get(str(id)) == None:
+    if data.get(str(id)) is None:
         dt = datetime.strptime(data[str(id)], "%Y-%m-%d %H:%M:%S")
     else:
         dt = datetime.now()
@@ -118,14 +119,14 @@ def add_items(
 
 
 def create_embed(
-    title: str,
-    url: str,
-    description: str,
-    img_url: str,
-    price: str,
-    size: str,
-    currency: str,
-    status: str) -> discord.Embed:
+        title: str,
+        url: str,
+        description: str,
+        img_url: str,
+        price: str,
+        size: str,
+        currency: str,
+        status: str) -> discord.Embed:
     description = f"""
         **Taille**
             {size}
