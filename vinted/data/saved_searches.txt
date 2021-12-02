@@ -1,2 +1,4 @@
-{"search_text": "sweatshirt", "brand_ids": "53", "order": "newest_first", "color_ids": "1", "status_ids": "3,2"}
-{"search_text": "carhartt sweat", "brand_ids": "362", "order": "newest_first", "status_ids": "6"}
+{"search_text": "sweat nike brod\u00e9", "brand_ids": "53", "order": "newest_first", "size_ids": "207,208,209", "status_ids": "2,1,6"}
+{"search_text": "pull a capuche zipp\u00e9 nike", "brand_ids": "53", "order": "newest_first", "size_ids": "207,208,209", "status_ids": "2,1,6"}
+{"search_text": "Vestes harrington", "brand_ids": "88", "order": "newest_first", "size_ids": "207,208,209", "status_ids": "1,2,6"}
+{"search_text": "pull a capuche zipp\u00e9", "brand_ids": "88", "order": "newest_first", "size_ids": "207,208,209", "status_ids": "1,2,6"}

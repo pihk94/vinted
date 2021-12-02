@@ -97,7 +97,7 @@ def get_last_check(
         filename: str = f"{DIRECTORY}/data/last_check.json") -> datetime:
     with open(filename, "r") as f:
         data = json.load(f)
-    if data.get(str(id)) is None:
+    if data.get(str(id)) is not None:
         dt = datetime.strptime(data[str(id)], "%Y-%m-%d %H:%M:%S")
     else:
         dt = datetime.now()

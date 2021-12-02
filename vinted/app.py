@@ -11,7 +11,11 @@ from vinted.utils.utils import (
     create_embed,
     get_items,
 )
-from vinted.config.production import FINAL_TRANSACTION, SAVED_SEARCHES
+from vinted.config.production import (
+    FINAL_TRANSACTION,
+    SAVED_SEARCHES,
+    LAST_CHECK
+)
 from vinted.utils.helpers import HELP_ADD_ITEMS, HELP_REMOVE_ITEMS
 
 
@@ -71,7 +75,12 @@ async def remove_items(ctx, id: int = None):
     lines.pop(id)
     txt = f"This search has been deleted : {reverse_url(el)}"
     with open(SAVED_SEARCHES, 'w') as f:
-        f.write("\n".join(lines))
+        f.write("".join(lines))
+    with open(LAST_CHECK, "r") as f:
+        data = json.load(f)
+    data.pop(str(id))
+    with open(LAST_CHECK, "w") as out:
+        json.dump(data, out, indent=4)
     await ctx.send(txt)
 
 
