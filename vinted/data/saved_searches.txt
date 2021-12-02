@@ -1,0 +1,2 @@
+{"search_text": "sweatshirt", "brand_ids": "53", "order": "newest_first", "color_ids": "1", "status_ids": "3,2"}
+{"search_text": "carhartt sweat", "brand_ids": "362", "order": "newest_first", "status_ids": "6"}
