@@ -5,7 +5,6 @@
 
 FROM python:3.9.7-slim-buster
 LABEL maintainer="Melchior PRUGNIAUD"
-ENV DISCORD_TOKEN=""
 
 COPY . .
 

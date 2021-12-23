@@ -2,3 +2,11 @@
 {"search_text": "pull a capuche zipp\u00e9 nike", "brand_ids": "53", "order": "newest_first", "size_ids": "207,208,209", "status_ids": "2,1,6"}
 {"search_text": "Vestes harrington", "brand_ids": "88", "order": "newest_first", "size_ids": "207,208,209", "status_ids": "1,2,6"}
 {"search_text": "pull a capuche zipp\u00e9", "brand_ids": "88", "order": "newest_first", "size_ids": "207,208,209", "status_ids": "1,2,6"}
+{"search_text": "hoodie", "brand_ids": "88", "order": "newest_first", "size_ids": "207,208,209", "status_ids": "1,2,6"}
+{"search_text": "tshirt brod\u00e9", "brand_ids": "88", "order": "newest_first", "size_ids": "207,208,209", "status_ids": "1,2,6"}
+{"search_text": "veste sans manche", "brand_ids": "88", "order": "newest_first", "size_ids": "207,208,209", "status_ids": "2,6,1"}
+{"search_text": "tshirt", "brand_ids": "90804", "order": "newest_first", "size_ids": "207,208,209", "status_ids": "2,1,6"}
+{"search_text": "veste sherpa", "brand_ids": "53", "order": "newest_first", "size_ids": "207,208,209", "status_ids": "1,2,6"}
+{"search_text": "Sweats & sweats \u00e0 capuche", "brand_ids": "304", "order": "newest_first", "size_ids": "207,208,209", "status_ids": "2,1,6"}
+{"search_text": "veste sans manche", "brand_ids": "304", "order": "newest_first", "size_ids": "207,208,209", "status_ids": "6,1,2"}
+{"search_text": "Sweats & sweats \u00e0 capuche", "brand_ids": "2319", "order": "newest_first", "size_ids": "207,208,209", "status_ids": "2,1,6"}

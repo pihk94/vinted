@@ -14,7 +14,8 @@ from vinted.utils.utils import (
 from vinted.config.production import (
     FINAL_TRANSACTION,
     SAVED_SEARCHES,
-    LAST_CHECK
+    LAST_CHECK,
+    logger
 )
 from vinted.utils.helpers import HELP_ADD_ITEMS, HELP_REMOVE_ITEMS
 
@@ -26,6 +27,7 @@ bot = commands.Bot(command_prefix="!")
     name="add_items",
     help=HELP_ADD_ITEMS)
 async def _add_items(ctx, url: str):
+    logger.info(f"Adding new items: {url}")
     params = parse_url(url)
     # Read params of previous searches
     with open(SAVED_SEARCHES, 'r') as f:
@@ -61,6 +63,7 @@ async def _add_items(ctx, url: str):
     help=HELP_REMOVE_ITEMS
 )
 async def remove_items(ctx, id: int = None):
+    logger.info(f"Removing item id: {id}")
     with open(SAVED_SEARCHES, 'r') as f:
         lines = f.readlines()
     if id is None:
@@ -89,7 +92,7 @@ async def clear(ctx):
     await ctx.channel.purge()
 
 
-@tasks.loop(seconds=15)
+@tasks.loop(minutes=3)
 async def check_items():
     # Get all items that are watchlisted
     with open(SAVED_SEARCHES, 'r') as f:
@@ -98,6 +101,7 @@ async def check_items():
         search = json.loads(line)
         items, first_time_date = get_items(search, i)
         for item in items:
+            logger.info(f"Got {len(items)} items for {search}")
             embed = create_embed(
                 item.get("title"),
                 item.get("url"),
@@ -124,6 +128,7 @@ async def check_items():
                     url=url_buy
                 )
             ]))
+        logger.info(f"Writing {first_time_date} for {search}")
         write_last_check(i, first_time_date)
 
 
