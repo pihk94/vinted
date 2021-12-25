@@ -10,6 +10,7 @@ from vinted.utils.utils import (
     write_last_check,
     create_embed,
     get_items,
+    init_last_check
 )
 from vinted.config.production import (
     FINAL_TRANSACTION,
@@ -19,6 +20,8 @@ from vinted.config.production import (
 )
 from vinted.utils.helpers import HELP_ADD_ITEMS, HELP_REMOVE_ITEMS
 
+# Init last check
+init_last_check()
 
 bot = commands.Bot(command_prefix="!")
 

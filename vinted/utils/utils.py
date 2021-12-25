@@ -53,6 +53,20 @@ def parse_url(url: str) -> dict:
     return params
 
 
+def init_last_check():
+    data = {}
+    file_check = f"{DIRECTORY}/data/last_check.json"
+    file_searches = f"{DIRECTORY}/data/saved_searches.txt"
+    dt_now = datetime.now()
+    with open(file_searches, "r") as f:
+        lines = f.readlines()
+    data = {
+        i: dt_now.strftime("%Y-%m-%d %H:%M:%S") for i in range(len(lines))
+    }
+    with open(file_check, "w") as out:
+        json.dump(data, out, indent=4)
+
+
 def reverse_url(params: dict) -> str:
     """[summary]
 
