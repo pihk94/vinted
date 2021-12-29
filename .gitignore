@@ -3,3 +3,4 @@ __pycache__/
 discord_vinted.egg-info/
 notebooks/
 discord.log
+venv/
