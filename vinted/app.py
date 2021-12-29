@@ -12,11 +12,13 @@ from vinted.utils.utils import (
     get_items,
     init_last_check
 )
-from vinted.config.production import (
+from vinted.config import (
     FINAL_TRANSACTION,
     SAVED_SEARCHES,
     LAST_CHECK,
-    logger
+    logger,
+    CHANNEL,
+    TOKEN
 )
 from vinted.utils.helpers import HELP_ADD_ITEMS, HELP_REMOVE_ITEMS
 
@@ -116,7 +118,7 @@ async def check_items():
                 item.get("status")
             )
             url_buy = f"{FINAL_TRANSACTION}{item.get('id')}"
-            channel = bot.get_channel(909736472519790605)
+            channel = bot.get_channel(CHANNEL)
             await channel.send(embed=embed, components=ActionRow([
                 Button(
                     label="🔎 Détails",
@@ -139,4 +141,4 @@ async def check_items():
 async def on_ready():
     check_items.start()
 
-bot.run(os.getenv("DISCORD_TOKEN"))
+bot.run(TOKEN)
