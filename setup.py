@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="discord-vinted",
-    version="1.0.0",
+    version="1.1.0",
     packages=find_packages(),
     scripts=[],
     install_requires=[
@@ -13,4 +13,5 @@ setup(
     ],
     author="Melchior Prugniaud",
     author_email="melchior.prugniaud@gmail.com",
-    description="A bot for discord and vinted.",)
+    description="A bot for discord and vinted.",
+)
